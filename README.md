@@ -1,59 +1,137 @@
-# CustomPaginations
+Custom Angular Pagination Component
+A lightweight, reusable, and customizable pagination component built with Angular and Angular Material. This mini-project demonstrates how to paginate tabular data with a modern UI and clean component structure.
+✨ Features
+Works seamlessly with Angular Material tables
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
-## Development server
+Customizable labels for navigation buttons (e.g., "Prev", "Next")
 
-To start a local development server, run:
 
-```bash
-ng serve
-```
+Responsive pagination layout with ellipsis for long page ranges
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+Configurable page size options
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+Emits page change and page size change events
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+Standalone component — easily copy and paste into any Angular app
 
-## Building
 
-To build the project run:
+Styled pagination layout
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Fixed-height table with vertical scroll for smooth UX
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+📁 Project Structure
+css
+CopyEdit
+src/
+├── app/
+│   ├── custom-paginator/
+│   │   ├── custom-paginator.component.ts
+│   │   ├── custom-paginator.component.html
+│   │   └── custom-paginator.component.scss
+│   ├── table-example/
+│   │   ├── table-example.component.ts
+│   │   ├── table-example.component.html
+│   │   └── table-example.component.scss
 
-```bash
-ng test
-```
+🔧 How to Use
+Copy the custom-paginator folder into your Angular project.
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+Import necessary Angular Material modules, such as:
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+ts
+CopyEdit
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
-## Additional Resources
+Use the paginator in your component HTML like this:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+html
+CopyEdit
+<app-custom-paginator
+  [totalRecords]="totalRecords"
+  [itemsPerPage]="pageSize"
+  [currentPage]="currentPage"
+  (pageChange)="onPageChange($event)"
+  (pageSizeChange)="onPageSizeChange($event)"
+></app-custom-paginator>
+
+In your component TypeScript:
+
+
+ts
+CopyEdit
+currentPage = 1;
+pageSize = 10;
+totalRecords = ELEMENT_DATA.length;
+
+onPageChange(page: number): void {
+  this.currentPage = page;
+  this.updateTableData();
+}
+
+onPageSizeChange(size: number): void {
+  this.pageSize = size;
+  this.currentPage = 1;
+  this.updateTableData();
+}
+
+Optional: Add fixed-height styling to your table container:
+
+
+scss
+CopyEdit
+.table-container {
+  max-height: 40vh;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+🧠 Suggestions for Improvement
+If you want to make this more reusable or turn it into a full library:
+Add i18n support for labels
+
+
+Optional first/last navigation buttons
+
+
+Theme agnostic with CSS variables
+
+
+Turn it into an Angular library for npm installation
+
+
+Add Jasmine/Karma unit tests
+
+
+Include ARIA attributes for better accessibility
+
+
+🧪 Dependencies
+Angular
+
+
+Angular Material
+
+
+To install Angular Material if not already:
+bash
+CopyEdit
+ng add @angular/material
+
+📸 Screenshots
+<!-- Add screenshots or a GIF demo of the component here if desired -->
+🤝 Contribution
+This is a mini reusable pagination solution built for copy-paste usage in Angular apps. Fork or clone the repo to adapt it as needed!
+
+
