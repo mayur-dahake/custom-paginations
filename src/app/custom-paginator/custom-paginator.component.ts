@@ -64,13 +64,8 @@ export class CustomPaginatorComponent {
         pages.push(1, { type: 'ellipsis', direction: 'prev' }, current -1, current, current +1, { type: 'ellipsis', direction: 'next' }, total);
       }
     }
-
-
     return pages;
   }
-
-
-
 
   public isNumber(value: PageItem): value is number {
     return typeof value === 'number';

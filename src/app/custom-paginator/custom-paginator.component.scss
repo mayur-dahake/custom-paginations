@@ -90,15 +90,13 @@
       button {
         height: 100%;
 
-
         .button-content {
           display: flex;
           flex-direction: row;
           align-items: center;
           gap: 8px;
         }
-
-
+        
         mat-icon {
           width: 24px;
           height: 24px;
