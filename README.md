@@ -1,33 +1,22 @@
-Custom Angular Pagination Component
+
+# Custom Angular Pagination Component
+
 A lightweight, reusable, and customizable pagination component built with Angular and Angular Material. This mini-project demonstrates how to paginate tabular data with a modern UI and clean component structure.
-✨ Features
-Works seamlessly with Angular Material tables
 
+## ✨ Features
 
-Customizable labels for navigation buttons (e.g., "Prev", "Next")
+- Works seamlessly with Angular Material tables  
+- Customizable labels for navigation buttons (e.g., "Prev", "Next")  
+- Responsive pagination layout with ellipsis for long page ranges  
+- Configurable page size options  
+- Emits page change and page size change events  
+- Standalone component — easily copy and paste into any Angular app  
+- Styled pagination layout  
+- Fixed-height table with vertical scroll for smooth UX  
 
+## 📁 Project Structure
 
-Responsive pagination layout with ellipsis for long page ranges
-
-
-Configurable page size options
-
-
-Emits page change and page size change events
-
-
-Standalone component — easily copy and paste into any Angular app
-
-
-Styled pagination layout
-
-
-Fixed-height table with vertical scroll for smooth UX
-
-
-📁 Project Structure
-css
-CopyEdit
+```
 src/
 ├── app/
 │   ├── custom-paginator/
@@ -38,26 +27,23 @@ src/
 │   │   ├── table-example.component.ts
 │   │   ├── table-example.component.html
 │   │   └── table-example.component.scss
+```
 
-🔧 How to Use
-Copy the custom-paginator folder into your Angular project.
+## 🔧 How to Use
 
+1. **Copy the `custom-paginator` folder** into your Angular project.
 
-Import necessary Angular Material modules, such as:
-
-
-ts
-CopyEdit
+2. **Import necessary Angular Material modules**, such as:
+```ts
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+```
 
-Use the paginator in your component HTML like this:
+3. Use the paginator in your component HTML like this:
 
-
-html
-CopyEdit
+```html
 <app-custom-paginator
   [totalRecords]="totalRecords"
   [itemsPerPage]="pageSize"
@@ -65,12 +51,11 @@ CopyEdit
   (pageChange)="onPageChange($event)"
   (pageSizeChange)="onPageSizeChange($event)"
 ></app-custom-paginator>
+```
 
-In your component TypeScript:
+4. In your component TypeScript:
 
-
-ts
-CopyEdit
+```ts
 currentPage = 1;
 pageSize = 10;
 totalRecords = ELEMENT_DATA.length;
@@ -85,53 +70,44 @@ onPageSizeChange(size: number): void {
   this.currentPage = 1;
   this.updateTableData();
 }
+```
 
-Optional: Add fixed-height styling to your table container:
+5. Optional: Add fixed-height styling to your table container:
 
-
-scss
-CopyEdit
+```scss
 .table-container {
   max-height: 40vh;
   overflow-y: auto;
   margin-bottom: 16px;
 }
+```
 
-🧠 Suggestions for Improvement
+## 🧠 Suggestions for Improvement
+
 If you want to make this more reusable or turn it into a full library:
-Add i18n support for labels
 
+- Add i18n support for labels  
+- Optional first/last navigation buttons  
+- Theme agnostic with CSS variables  
+- Turn it into an Angular library for `npm` installation  
+- Add Jasmine/Karma unit tests  
+- Include ARIA attributes for better accessibility  
 
-Optional first/last navigation buttons
+## 🧪 Dependencies
 
-
-Theme agnostic with CSS variables
-
-
-Turn it into an Angular library for npm installation
-
-
-Add Jasmine/Karma unit tests
-
-
-Include ARIA attributes for better accessibility
-
-
-🧪 Dependencies
-Angular
-
-
-Angular Material
-
+- Angular  
+- Angular Material  
 
 To install Angular Material if not already:
-bash
-CopyEdit
+
+```bash
 ng add @angular/material
+```
 
-📸 Screenshots
+## 📸 Screenshots
+
 <!-- Add screenshots or a GIF demo of the component here if desired -->
-🤝 Contribution
+
+## 🤝 Contribution
+
 This is a mini reusable pagination solution built for copy-paste usage in Angular apps. Fork or clone the repo to adapt it as needed!
-
-
