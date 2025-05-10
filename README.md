@@ -108,6 +108,8 @@ ng add @angular/material
 
 <!-- Add screenshots or a GIF demo of the component here if desired -->
 
+![alt text](src/asset/image.png)
+
 ## 🤝 Contribution
 
 This is a mini reusable pagination solution built for copy-paste usage in Angular apps. Fork or clone the repo to adapt it as needed!
