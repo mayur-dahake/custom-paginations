@@ -14,48 +14,76 @@ A lightweight, reusable, and customizable pagination component built with Angula
 - Styled pagination layout  
 - Fixed-height table with vertical scroll for smooth UX  
 
-## 📁 Project Structure
+## 📦 Installation
 
-```
-src/
-├── app/
-│   ├── custom-paginator/
-│   │   ├── custom-paginator.component.ts
-│   │   ├── custom-paginator.component.html
-│   │   └── custom-paginator.component.scss
-│   ├── table-example/
-│   │   ├── table-example.component.ts
-│   │   ├── table-example.component.html
-│   │   └── table-example.component.scss
+Install the package using npm:
+
+```bash
+npm install mdevhub
 ```
 
-## 🔧 How to Use
+---
 
-1. **Copy the `custom-paginator` folder** into your Angular project.
+## 🔧 Usage
 
-2. **Import necessary Angular Material modules**, such as:
+Import the desired modules in your Angular module or component:
+
 ```ts
-import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
+// Example in a standalone component
+import { MDevHubPaginatorComponent } from 'mdevhub';
+
+@Component({
+  selector: 'app-demo',
+  standalone: true,
+  imports: [MDevHubPaginatorComponent],
+  ...
+})
 ```
 
-3. Use the paginator in your component HTML like this:
+Or if you're using an NgModule:
+
+```ts
+import { NgModule } from '@angular/core';
+import { MDevHubPaginatorComponent } from 'mdevhub';
+
+@NgModule({
+  declarations: [...],
+  imports: [
+    MDevHubPaginatorComponent
+  ]
+})
+export class YourModule {}
+```
+
+---
+
+## 🧪 Example - Using the Custom Paginator
 
 ```html
-<app-custom-paginator
+<mdevhub-paginator
   [totalRecords]="totalRecords"
   [itemsPerPage]="pageSize"
   [currentPage]="currentPage"
   (pageChange)="onPageChange($event)"
-  (pageSizeChange)="onPageSizeChange($event)"
-></app-custom-paginator>
+  (pageSizeChange)="onPageSizeChange($event)">
+</mdevhub-paginator>
 ```
 
-4. In your component TypeScript:
-
 ```ts
+// In your component.ts
+totalRecords = 100;
+pageSize = 10;
+currentPage = 1;
+
+onPageChange(newPage: number) {
+  this.currentPage = newPage;
+}
+
+onPageSizeChange(newSize: number) {
+  this.pageSize = newSize;
+  this.currentPage = 1;
+}
+
 currentPage = 1;
 pageSize = 10;
 totalRecords = ELEMENT_DATA.length;
@@ -103,6 +131,12 @@ To install Angular Material if not already:
 ```bash
 ng add @angular/material
 ```
+
+## Source Code
+-  🔗 [GitHub](https://github.com/mayur-dahake/custom-paginations)  
+
+## Demo
+-   💻 [Demo](https://custom-paginations.vercel.app/)
 
 ## 📸 Screenshots
 
